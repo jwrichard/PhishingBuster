@@ -11,7 +11,14 @@ chrome.storage.local.get(["domains", "admin"], function(data){
 		// Draw my domains
 		if(data.domains != undefined){
 			if(data.domains.length > 0){
+
+				data.domains.forEach(function(item){
+
+				});
+
 				$("#pb_ext_domains").append(data.domains.join(', '));
+
+
 			} else {
 				$("#pb_ext_domains").append('<i>None</i>');
 			}
@@ -22,6 +29,12 @@ chrome.storage.local.get(["domains", "admin"], function(data){
 		// Draw a small sample of default whitelist
 		$("#pb_ext_default_wl").append('Contains top 1000 visited sites including: '+ defaultWhitelistSample.join(', '));
 	}
+});
+
+// Handle open and closing of the admin section
+$('#toggleAdvanced').on('click', function(){
+	$('#advanced').toggle(500);
+	$('#arrow').toggleClass('right down');
 });
 
 // Handle the Clear All option for users whitelisted domains

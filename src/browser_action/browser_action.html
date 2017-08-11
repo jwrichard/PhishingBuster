@@ -1,6 +1,6 @@
 <!doctype html>
 <style type="text/css">
-	body {
+	body, h5 {
 		margin: 0px;
 	}
 
@@ -23,7 +23,6 @@
 	h2 {
 		font-size: 1.6em;
 		margin-top: 0px;
-		text-decoration: underline;
 	}
 
 	a {
@@ -34,23 +33,66 @@
 		width: 90%;
 	}
 
-	#pb_ext_admin_list {
-		width: 90%;
+	#pb_ext_admin_list, #pb_ext_api {
+		width: 97%;
 		margin-bottom: 8px;
+	}
+
+	#advanced {
+		background: rgba(255,255,255,0.15);
+	    padding-left: 2px;
+	    width: 70%;
+	}
+
+	.hidden {
+		display: none;
+	}
+
+	#arrow {
+	    border: solid white;
+	    border-width: 0 2px 2px 0;
+	    display: inline-block;
+	    padding: 2px;
+	    margin-right: 4px;
+	}
+
+	.right {
+	    transform: rotate(-45deg);
+	    -webkit-transform: rotate(-45deg);
+	    transition: transform 0.5s linear;
+	}
+
+	.down {
+	    transform: rotate(45deg);
+	    -webkit-transform: rotate(45deg);
+	    transition: transform 0.5s linear;
 	}
 
 </style>
 <div id="mainPopup">
 	<h2>PhishingBuster Configuration</h2>
 
-	<h4 class="pb_ext_no_margin">Administrative Whitelist:</h4>
-	<input type="text" id="pb_ext_admin_list" placeholder="CSV of domains without subdomains"/>
+	
 
-	<h4 id="pb_ext_wl_title" class="pb_ext_no_margin">My Whitelisted Domains: (<a href="#" id="pb_ext_delete">Clear all</a>)</h4>
+	<h4 id="pb_ext_wl_title" class="pb_ext_no_margin">My safe domains: (<a href="#" id="pb_ext_delete">Clear all</a>)</h4>
 	<p id="pb_ext_domains"></p>
 
-	<h4 class="pb_ext_no_margin">Default Whitelist:</h4>
+	<h4 class="pb_ext_no_margin">Default safe sites:</h4>
 	<p id="pb_ext_default_wl"></p>
+
+
+	<h5 id="toggleAdvanced"><i id="arrow" class="right"></i>Advanced settings</h5>
+	<div id="advanced" class="hidden">
+		<h4 class="pb_ext_no_margin">Administrative Whitelist:</h4>
+		<input type="text" id="pb_ext_admin_list" placeholder="CSV of domains without subdomains"/>
+
+		<h4 class="pb_ext_no_margin">Threat Analysis API:</h4>
+		<input type="text" id="pb_ext_api" placeholder="URI to API"/>
+	</div>
+
+	
+
+
 </div>
 <script src="../../js/jquery/jquery-3.2.1.min.js"></script>
 <script src="browser_action.js"></script>
